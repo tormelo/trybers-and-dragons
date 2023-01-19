@@ -1,6 +1,8 @@
 import { EnergyType } from '../Energy';
 
 abstract class Archetype {
+  protected static _createdArchetypeInstances = 0;
+  protected _energyType = '';
   private _special = 0; 
   private _cost = 0;
 
@@ -8,6 +10,10 @@ abstract class Archetype {
   
   static createdArchetypeInstances() {
     throw new Error('Not implemented');
+  }
+
+  protected static addArchetypeInstance(): void {
+    this._createdArchetypeInstances += 1;
   }
   
   get name() {
